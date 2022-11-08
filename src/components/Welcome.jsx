@@ -2,16 +2,16 @@ import React, { useState } from "react";
 
 import "./welcome.css"
 
-function Welcome() {
-
-    // [ State Variable, Function to update it ] = useState("initial_state")
-    let [ name, setName ] = useState("Paul")
-
-
+function Welcome(props) {
+    
+    function removeName() {
+        const updatedNames = props.allNames.filter(name => name !== props.name)
+        props.updateNames(updatedNames)
+    }
     return (
-        <>
-        <h1 className="header">Welcome to my first component, {name}</h1>
-        </>
+        <div onClick={removeName}>
+            <h1>Welcome, {props.name}</h1>
+        </div>
     )
 }
 
