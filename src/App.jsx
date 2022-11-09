@@ -4,6 +4,8 @@ import Welcome from './components/Welcome';
 import Count from './components/Count';
 import Auth from './components/Auth/Auth';
 
+import ClassExample from './components/ClassExample';
+
 // This is a component
 // Reusable block of code that refers to part of an interface
 // Defined with capitalized fx name & file name
@@ -11,19 +13,23 @@ function App() {
 
   // [ State Variable, Function to update it ] = useState("initial_state")
   let [ names, setNames ] = useState(["Paul", "Rene", "Mary", "Joe", "Josh", "Maddie"])
+  console.log(useState())
+
+  console.log(names)
   // Return renders content to the page
   return (
     // This is a fragment
     <>
     Hello class!
     {/* We mount the component */}
-    {/* <Count />
-    <Auth /> */}
+    <Count />
+    <Auth />
     {names.map(name => {
       return (
         <Welcome name={name} allNames={names} updateNames={setNames}/>
       )
     })}
+    <ClassExample />
     </>
   );
 }

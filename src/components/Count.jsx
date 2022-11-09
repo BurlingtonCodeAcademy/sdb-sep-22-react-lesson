@@ -3,10 +3,24 @@ import "./count.css"
 
 function Count() {
 
-    let [ count, setCount ] = useState(0)
+  // Replace anonymous callback inside count useState() with this
+  function iCount() {
+    console.log("This runs every time state is updated")
+    return 0
+  }
+
+    let [ count, setCount ] = useState(
+      () => {
+      console.log("This runs only once during initial render")
+      return 0
+    }
+    // iCount()
+    )
 
     function incrementCount() {
-        setCount(count + 1)
+        // prevCount gives us access to the prior state of our state variable
+        setCount(prevCount => prevCount + 1)
+
     }
 
     function decrementCount() {
